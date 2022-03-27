@@ -1,0 +1,116 @@
+WindowManager:
+    TkwMainWindow:
+    TkwExamBelts:
+    TkwExamWindow:
+    TkwTopicWindow:
+    TkwTopicList:
+
+<TkwMainWindow>:
+    name: "main"
+    GridLayout:
+        cols: 1
+        Button:
+            text: "Log in"
+            on_release: root.login()
+        Button:
+            text: "Exams"
+            on_release:
+                app.root.current = "belt_list"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Techniques"
+            on_release: root.show_techniques()
+
+<TkwExamBelts>:
+    name: "belt_list"
+    GridLayout:
+        cols: 1
+        Button:
+            text: "Black"
+            on_release: root.set_belt("Black")
+        Button:
+            text: "Red"
+            on_release: root.set_belt("Red")
+        Button:
+            text: "Blue"
+            on_release: root.set_belt("Blue")
+        Button:
+            text: "Green"
+            on_release: root.set_belt("Green")
+        Button:
+            text: "Orange"
+            on_release: root.set_belt("Orange")
+        Button:
+            text: "Yellow"
+            on_release: root.set_belt("Yellow")
+        Button:
+            text: "Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<TkwExamWindow>:
+    name: "exam"
+    GridLayout:
+        cols: 1
+
+        Button:
+            text: "Sogui Kisul"
+            on_release: root.set_topic("Sogui Kisul")
+        Button:
+            text: "Son Kisul Maki"
+            on_release: root.set_topic("Son Kisul Maki")
+        Button:
+            text: "Son Kisul Gong Kiok"
+            on_release: root.set_topic("Son Kisul Gong Kiok")
+        Button:
+            text: "PUM"
+            on_release: root.set_topic("PUM")
+        Button:
+            text: "Chagui"
+            on_release: root.set_topic("Chagui")
+        Button:
+            id: "yonsokdongchak"
+            text: "Yonsok Dong Chak"
+            on_release: root.set_topic("Yonsok Dong Chak")
+        Button:
+            text: "Tuios"
+            on_release: root.set_topic("Tuios")
+        Button:
+            text: "Yonsok Dong Chack"
+            on_release: root.set_topic("Yonsok Dong Chack")
+        Button:
+            text: "Pumse"
+            on_release: root.set_topic("Pumse")
+        Button:
+            id: start_exam
+            text: "Start"
+            on_release: root.start_test()
+        Button:
+            text: "Back"
+            on_release: root.back()
+
+<TkwTopicWindow>:
+    name: "topics"
+    GridLayout:
+        cols: 1
+        Button:
+            text: "List"
+            on_release: root.list_test()
+        Button:
+            id: start_topic
+            text: "Start"
+            on_release: root.start_topic()
+
+        Button:
+            text: "Back"
+            on_release:
+                app.root.current = "exam"
+                root.manager.transition.direction = "right"
+
+<TkwTopicList>
+    name: "topic_list"
+
+    GridLayout:
+        id:  grid_topic_list
+        cols: 1

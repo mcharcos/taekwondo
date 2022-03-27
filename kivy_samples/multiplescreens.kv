@@ -1,0 +1,48 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+
+<MainWindow>:
+    name: "main"
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Password:"
+            TextInput:
+                id: passw
+                multiline: False
+        Button:
+            text: "Submit"
+            on_release:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+
+<SecondWindow>:
+    name: "second"
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 2
+            Button:
+                text: "GoBack"
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "GoForward"
+                on_release:
+                    app.root.current = "third"
+                    root.manager.transition.direction = "left"
+
+<ThirdWindow>:
+    name: "third"
+    Button:
+        text: "GoBack"
+        on_release:
+            app.root.current = "second"
+            root.manager.transition.direction = "right"
