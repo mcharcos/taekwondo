@@ -6,7 +6,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 
 
-from tkwcards import TkwCards
+from .tkwcards import TkwCards
 
 # Another example: https://gist.github.com/Kovak/5977673
 
